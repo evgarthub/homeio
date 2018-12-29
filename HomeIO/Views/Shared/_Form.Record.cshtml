@@ -1,0 +1,51 @@
+﻿@model FormRecordViewModel
+
+
+<form class="form" method="post">
+    <div class="form__field">
+        <select class="form__input" required name="TypeId">
+            @if (Model.HasRecord)
+            {
+                foreach (var item in Model.Types)
+                {
+                    if (item.Id == Model.Record.TypeId)
+                    {
+                        <option class="form__option" value="@item.Id">@item.Name</option>
+                        break;
+                    }
+
+                }
+
+                foreach (var item in Model.Types)
+                {
+                    if (item.Id != Model.Record.TypeId)
+                    {
+                        <option class="form__option" value="@item.Id">@item.Name</option>
+                    }
+                }
+            }
+            else
+            {
+                <option class="form__option">Please choose type</option>
+
+                foreach (var item in Model.Types)
+                {
+                    <option class="form__option" value="@item.Id">@item.Name</option>
+
+                }
+            }
+
+        </select>
+        @Html.ActionLink("New", "New", "Type", null, new { @class = "form__add-button button" })
+    </div>
+    <div class="form__field">
+        <input class="form__input" type="number" step="any" name="CurrentValue" placeholder="Value" value="@Model.Record.CurrentValue" />
+    </div>
+    <div class="form__field">
+        <input class="form__input" type="date" name="Date" placeholder="date" value="@Convert.ToDateTime(Model.Record.Date).ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form__field form__field--button">
+        <input class="form__input button button--blue" type="submit" value="Submit" />
+    </div>
+</form>
+

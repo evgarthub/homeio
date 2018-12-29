@@ -1,0 +1,31 @@
+﻿@model List<RType>
+
+
+<section class="list">
+    <div class="list__container">
+
+        <header class="list__header">
+            List of Types
+        </header>
+
+        <div class="list__cards">
+
+            @foreach (var type in Model)
+            {
+            <div class="list__card">
+                <div class="list__name">@type.Name</div>
+                <div class="list__formula">@type.Formula</div>
+
+                @Html.ActionLink("Show records", "ListById", "Record", new { @id = type.Id }, new { @class = "list__button" })
+                @Html.ActionLink("Show tariffs", "ListById", "Tariff", new { @id = type.Id }, new { @class = "list__button" })
+            </div>
+            }
+
+
+
+        </div>
+
+        @Html.ActionLink("Add new type", "New", "Type", null, new { @class = "list__add-button button button--circle" })
+    </div>
+</section>
+

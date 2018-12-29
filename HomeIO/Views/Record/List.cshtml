@@ -1,0 +1,34 @@
+﻿@model List<RecordView>
+
+<section class="list">
+    <div class="list__container">
+
+        <header class="list__header">
+            List of Records
+        </header>
+
+        <div class="list__cards">
+            @foreach (var row in Model)
+            {
+            <div class="list__card">
+                <i class="list__card-circle far fa-circle"></i>
+                <div class="list__current">
+                    <div class="list__value">@row.CurrentValue</div>
+                    <div class="list__unit">@row.Unit</div>
+                </div>
+                <div class="list__type-wrapper">
+                    @Html.ActionLink(row.TypeName, "ListById", "Record", new { @id = row.TypeId }, new { @class = "list__type" })
+                </div>
+
+                <div class="list__date"><i class="list__date-icon far fa-calendar-alt"></i>@Convert.ToDateTime(row.Date).ToString("MM/dd/yyyy")</div>
+                <div class="list__control">
+                    <a href="/record/edit/@row.Id" class="list__control-link list__control-link--edit"><i class="far fa-edit"></i></a>
+                    <a href="/record/delete/@row.Id" class="list__control-link list__control-link--delete"><i class="fas fa-times"></i></a>
+                </div>
+
+
+            </div>
+            }
+        </div>
+    </div>
+</section>

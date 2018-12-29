@@ -1,0 +1,27 @@
+﻿@model Record
+
+<section class="thanks-page">
+    <div class="thanks-page__container">
+
+        <header class="thanks-page__header">Thank you! Record has been created.</header>
+
+        <div class="list__card">
+            <i class="list__card-circle far fa-circle"></i>
+            <div class="list__current">
+                <div class="list__value">@Model.CurrentValue</div>
+                <div class="list__unit">Model.Unit</div>
+            </div>
+            <div class="list__type-wrapper">
+                @Html.ActionLink("row.TypeName", "ListById", "Record", new { @id = Model.TypeId }, new { @class = "list__type" })
+            </div>
+
+            <div class="list__date"><i class="list__date-icon far fa-calendar-alt"></i>@Convert.ToDateTime(Model.Date).ToString("MM/dd/yyyy")</div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+

@@ -1,0 +1,65 @@
+﻿///<reference path="../main.less" />
+
+.base-container() {
+    margin: 0 auto;
+    padding: 0 @pad-medium;
+    max-width: 90%;
+    width: 100%;
+}
+
+.card() {
+    .floating;
+    padding: @pad-medium;
+    border-radius: 3px;
+    position: relative;
+    transition: all ease-out .23s;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: 0 6px 30px 2px @color-grey;
+        z-index: 2;
+    }
+}
+
+.floating() {
+    background-color: @color-white;
+    box-shadow: 0 2px 3px 1px @color-grey;
+}
+
+.unlink() {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.glow-red() {
+    color: @color-red;
+    text-shadow: 0px 1px 3px @color-red;
+}
+
+.glow-blue() {
+    color: @color-blue;
+    text-shadow: 0px 1px 3px @color-blue;
+}
+
+.glow-yellow() {
+    color: @color-yellow;
+    text-shadow: 0px 1px 3px @color-yellow;
+}
+
+.label-style() {
+    border-radius: 3px;
+    color: @color-dark-grey;
+    background-color: @color-grey;
+    padding: @pad-small;
+}
+
+.label-style--blue() {
+    .label-style();
+    color: @color-blue;
+    background-color: @color-blue--light;
+}

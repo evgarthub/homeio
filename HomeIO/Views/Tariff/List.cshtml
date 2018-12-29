@@ -1,0 +1,30 @@
+﻿@model List<TariffView>
+
+
+<section class="list">
+    <div class="list__container">
+
+        <header class="list__header">
+            List of Tariffs
+        </header>
+
+        <div class="list__cards">
+
+            @foreach (var tariff in Model)
+            {
+            <div class="list__card">
+                <div class="list__date">@tariff.Date</div>
+                <div class="list__cost">@tariff.Cost uah/@tariff.Unit </div>
+                <div class="list__formula">@tariff.TypeName</div>
+
+            </div>
+            }
+
+
+
+        </div>
+
+        @Html.ActionLink("Add new tariff", "New", "Tariff", null, new { @class = "list__add-button button button--circle" })
+    </div>
+</section>
+

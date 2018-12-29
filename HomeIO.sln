@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeIO", "HomeIO\HomeIO.csproj", "{3B58259E-C108-42C8-B0A4-10BC0F58A473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\Objective2\DataLayer\DataLayer.csproj", "{EBB1F557-D62F-4477-BADB-8276D30C94CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B58259E-C108-42C8-B0A4-10BC0F58A473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B58259E-C108-42C8-B0A4-10BC0F58A473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B58259E-C108-42C8-B0A4-10BC0F58A473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B58259E-C108-42C8-B0A4-10BC0F58A473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB1F557-D62F-4477-BADB-8276D30C94CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB1F557-D62F-4477-BADB-8276D30C94CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB1F557-D62F-4477-BADB-8276D30C94CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB1F557-D62F-4477-BADB-8276D30C94CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B13FF233-8CCC-4BDF-BAD8-C758D4206155}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿///<reference path="../main.less" />
+
+.form {
+    .card;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 30em;
+
+    &__field {
+        margin: .2em;
+        display: flex;
+        flex-flow: row nowrap;
+
+        &--button {
+            margin-top: @pad-medium;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 2.5em;
+        border: 1px solid @color-grey;
+        border-radius: 3px;
+        padding: .2em .4em;
+        background-color: @color-white;
+    }
+
+    &__add-button {
+    }
+}

@@ -1,0 +1,53 @@
+﻿@model SummaryPageViewModel
+
+
+
+<section class="summary-grid">
+    <div class="summary-grid__container">
+        <h1 class="summary-grid__header">Summary</h1>
+        <h4 class="summary-grid__date">@DateTime.Now.ToLongDateString()</h4>
+
+        <div class="summary-grid__grid">
+            <div class="summary-grid__block">
+                <h3 class="summary-grid__title">Total cost</h3>
+
+                <div class="summary-grid__quater summary-grid__quater--cost">
+                    <span class="summary-grid__value">@Model.TotalCost</span>
+                    <span class="summary-grid__unit">uah</span>
+                </div>
+            </div>
+
+            @foreach (var record in @Model.SumRecords)
+            {
+                <div class="summary-grid__block">
+                    <h3 class="summary-grid__title">
+                        @Html.ActionLink(@record.TypeName, "ListById", "Record", new { @id = record.TypeId }, new { @class = "summary-grid__title-link" })
+                    </h3>
+                    <div class="summary-grid__quater summary-grid__quater--current">
+                        <span class="summary-grid__value">@record.Amount</span>
+                        <span class="summary-grid__unit">@record.Unit</span>
+                    </div>
+                    <div class="summary-grid__quater summary-grid__quater--cost" title="@record.Tariff[0] uah/@record.Unit">
+                        <span class="summary-grid__value">@record.Cost</span>
+                        <span class="summary-grid__unit">uah</span>
+                    </div>
+
+                    <div class="summary-grid__quater summary-grid__quater--period">
+                        <span class="summary-grid__value">@record.Period</span>
+                        <span class="summary-grid__unit">days period</span>
+                    </div>
+
+                    <div class="summary-grid__quater summary-grid__quater--since">
+                        <span class="summary-grid__value">@record.Days</span>
+                        <span class="summary-grid__unit">since last</span>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+
+    </div>
+</section>
+

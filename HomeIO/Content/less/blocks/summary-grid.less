@@ -1,0 +1,80 @@
+﻿///<reference path="../main.less" />
+
+.summary-grid {
+    padding-top: @pad-medium;
+    padding-bottom: @pad-medium;
+    background-color: @color-light-grey;
+
+    &__container {
+        .base-container();
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+        grid-gap: 1em;
+        margin-top: @pad-large;
+    }
+
+    &__header {
+        .typo-header-medium;
+    }
+
+    &__date {
+        .typo-text-medium;
+        color: @color-dark-grey;
+    }
+
+    &__block {
+        .card;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 1em;
+        align-items: flex-start;
+        transition: all ease-out .3s;
+    }
+
+    &__days {
+        margin-top: .5em;
+    }
+
+    &__quater {
+        flex: 1 0 auto;
+        display: flex;
+        flex-flow: column nowrap;
+        width: 50%;
+        padding: @pad-small 0;
+        justify-content: center;
+
+        &--current {
+        }
+
+        &--cost {
+        }
+
+        &--period {
+        }
+    }
+
+    &__value {
+        .typo-header-medium;
+    }
+
+    &__unit {
+        .typo-text-medium;
+        color: @color-dark-grey;
+    }
+
+    &__title {
+        .typo-header-small;
+        color: @color-dark-grey;
+        text-transform: uppercase;
+        border-bottom: 1px solid @color-grey;
+        padding-bottom: @pad-medium;
+        width: 100%;
+
+        &-link {
+            .unlink;
+        }
+    }
+}
