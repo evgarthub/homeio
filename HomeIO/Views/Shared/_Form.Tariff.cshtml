@@ -48,7 +48,7 @@
         <input class="form__input" type="date" name="Date" placeholder="Date" value="@(Model.HasTariff ? Convert.ToDateTime(Model.Tariff.Date).ToString("yyyy-MM-dd") : string.Empty)" />
     </div>
     <div class="form__field">
-        <input class="form__input" type="text" name="Source" placeholder="Source" value="" />
+        <input class="form__input" type="text" name="Source" placeholder="Source" value="@(Model.HasTariff ? Model.Tariff.Source : string.Empty)" />
     </div>
     <div class="form__field form__field--button">
         <input class="form__input button button--blue" type="submit" value="Submit" />

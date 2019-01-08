@@ -99,5 +99,37 @@ namespace HomeIO.Models.Repositories
                 return rows;
             }
         }
-    }
+
+		public IList<TariffView> GetByTypeId(int id)
+		{
+			Open();
+			SqlCommand command = new SqlCommand();
+
+			command.Connection = DBInstance;
+			command.CommandText = "SELECT [Id],[TypeId],[Unit],[Cost],[StartDate],[Source],[TypeName],[TypeFormula] FROM [vwTariffs] WHERE [TypeId] = @typeId ORDER BY StartDate DESC";
+			command.Parameters.AddWithValue("typeId", id);
+			SqlDataReader reader = command.ExecuteReader();
+
+			IList<TariffView> rows = new List<TariffView>();
+
+			while (reader.Read())
+			{
+				rows.Add(new TariffView
+				{
+					Id = reader.GetInt32(0),
+					TypeId = reader.GetInt32(1),
+					Unit = reader.GetString(2),
+					Cost = reader.GetString(3),
+					Date = reader.GetDateTime(4),
+					Source = reader.GetString(5),
+					TypeName = reader.GetString(6),
+					TypeFormula = reader.GetString(7)
+				});
+			}
+
+			Close();
+
+			return rows;
+		}
+	}
 }

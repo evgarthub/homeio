@@ -361,6 +361,9 @@ body {
 .navbar__list-item {
   padding: 0.5em;
 }
+.navbar__list--login {
+  padding-left: 0.5em;
+}
 .navbar__logo-wrapper {
   color: #b3b9be;
   font-family: 'Ubuntu', sans-serif;
@@ -497,6 +500,36 @@ body {
   grid-row: 1;
   grid-column: 1;
 }
+.list__card-name {
+  grid-row: 1;
+  grid-column: 1;
+}
+.list__card-formula {
+  grid-row: 1;
+  grid-column: 2;
+}
+.list__card--type {
+  grid-template-columns: 1fr 1fr auto auto;
+  grid-column-gap: 1em;
+}
+.list__card--water {
+  border-left: 4px solid #4680ff;
+}
+.list__card--hot-water {
+  border-left: 4px solid #4680ff;
+}
+.list__card--maintenance {
+  border-left: 4px solid #b3b9be;
+}
+.list__card--heating {
+  border-left: 4px solid #fb617f;
+}
+.list__card--electricity {
+  border-left: 4px solid #feb64d;
+}
+.list__card--gas {
+  border-left: 4px solid #b3b9be;
+}
 .list__current {
   grid-column: 2;
   grid-row: 1;
@@ -588,6 +621,9 @@ body {
 }
 .list__control-link--delete:hover {
   color: #fb617f;
+}
+.list__control-link--source:hover {
+  color: #4680ff;
 }
 @media all and (max-width: 600px) {
   .list__control {

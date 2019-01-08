@@ -1,0 +1,10 @@
+﻿
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) { 
+    <div class="navbar__list">
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar__list-item button" })
+        @Html.ActionLink("Types", "List", "Type", null, new { @class = "navbar__list-item button" })
+        @Html.ActionLink("Records", "List", "Record", null, new { @class = "navbar__list-item button" })
+        @Html.ActionLink("Add record", "New", "Record", null, new { @class = "navbar__list-item button" })
+    </div>
+}

@@ -1,7 +1,7 @@
 ﻿@model List<TariffView>
 
 
-<section class="list">
+<section class="list list--tariff">
     <div class="list__container">
 
         <header class="list__header">
@@ -12,11 +12,18 @@
 
             @foreach (var tariff in Model)
             {
-            <div class="list__card">
+            <div class="list__card list--tariff__card">
                 <div class="list__date">@tariff.Date</div>
-                <div class="list__cost">@tariff.Cost uah/@tariff.Unit </div>
-                <div class="list__formula">@tariff.TypeName</div>
-
+                <div class="list__current"><span class="list__value">@tariff.Cost</span>  <span class="list__unit">uah/@tariff.Unit</span> </div>
+                <div class="list__type-wrapper">
+                    @Html.ActionLink(tariff.TypeName, "ListById", "Record", new { @id = tariff.TypeId }, new { @class = "list__type" })
+                </div>
+                <div class="list__control">
+                    <a href="@tariff.Source" class="list__control-link list__control-link--source" title="Source"><i class="fas fa-external-link-square-alt"></i></a>
+                    <a href="/tariff/edit/@tariff.Id" class="list__control-link list__control-link--edit"><i class="far fa-edit"></i></a>
+                    <a href="/tariff/delete/@tariff.Id" class="list__control-link list__control-link--delete"><i class="fas fa-times"></i></a>
+                </div>
+                
             </div>
             }
 

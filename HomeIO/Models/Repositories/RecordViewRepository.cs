@@ -36,7 +36,7 @@ namespace HomeIO.Models.Repositories
             }
         }
 
-        public IList<RecordView> GetTopTwoById(int id) {
+        public IList<RecordView> GetTopTwoByTypeId(int id) {
             using (SqlCommand command = CreateCommand("SELECT TOP (2) * FROM vwRecords WHERE TypeId = @typeId ORDER BY Date DESC"))
             {
                 command.Parameters.AddWithValue("typeId", id);
@@ -66,7 +66,7 @@ namespace HomeIO.Models.Repositories
             }
         }
 
-        public IList<RecordView> GetById(int id)
+        public IList<RecordView> GetByTypeId(int id)
         {
             using (SqlCommand command = CreateCommand("SELECT * FROM vwRecords WHERE TypeId = @typeId ORDER BY Date DESC"))
             {
@@ -97,5 +97,37 @@ namespace HomeIO.Models.Repositories
                 return rows;
             }
         }
-    }
+
+		public RecordView GetById(int id)
+		{
+			using (SqlCommand command = CreateCommand("SELECT * FROM vwRecords WHERE Id = @Id ORDER BY Date DESC"))
+			{
+				command.Parameters.AddWithValue("Id", id);
+				SqlDataReader reader = command.ExecuteReader();
+
+				IList<RecordView> rows = new List<RecordView>();
+
+				if (reader.HasRows)
+				{
+					while (reader.Read())
+					{
+						rows.Add(new RecordView
+						{
+							Id = reader.GetInt32(0),
+							TypeId = reader.GetInt32(1),
+							CurrentValue = reader.GetDouble(2),
+							Date = reader.GetDateTime(3),
+							TypeName = reader.GetString(4),
+							Tariff = reader.GetString(5),
+							Unit = reader.GetString(6)
+						});
+					}
+				}
+
+				Close();
+
+				return rows[0];
+			}
+		}
+	}
 }

@@ -219,7 +219,7 @@
     <Content Include="Content\less\blocks\form.less" />
     <Content Include="Content\less\blocks\navbar.less" />
     <Content Include="Content\less\blocks\summary-grid.less" />
-    <Content Include="Content\less\blocks\table.less" />
+    <Content Include="Content\less\blocks\list.less" />
     <Content Include="Content\less\blocks\thanks-card.less" />
     <Content Include="Content\less\global\global.less" />
     <Content Include="Content\less\libs\bootstrap-reboot.less" />
@@ -252,8 +252,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -275,6 +273,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Tariff\List.cshtml" />
+    <Content Include="Views\Tariff\New.cshtml" />
+    <Content Include="Views\Record\Edit.cshtml" />
+    <Content Include="Views\Record\List.cshtml" />
+    <Content Include="Views\Record\New.cshtml" />
+    <Content Include="Views\Type\List.cshtml" />
+    <Content Include="Views\Type\New.cshtml" />
+    <Content Include="Views\Shared\_Form.Record.cshtml" />
+    <Content Include="Views\Shared\_Form.Tariff.cshtml" />
+    <Content Include="Views\Shared\_Form.Type.cshtml" />
+    <Content Include="Views\Shared\Thanks.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Tariff\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,13 +11,13 @@ namespace HomeIO.Controllers
 {
     public class TariffController : Controller
     {
-        public TariffViewRepository TariffViewRepo { get; }
-        public TariffRepository TariffRepo { get; }
+		public TariffViewRepository TariffViewRepo { get; set; }
+		public TariffRepository TariffRepo { get; }
 
         public TariffController() {
-            this.TariffViewRepo = new TariffViewRepository();
             this.TariffRepo = new TariffRepository();
-        }
+			this.TariffViewRepo = new TariffViewRepository();
+		}
         
         public ActionResult Index()
         {
@@ -26,26 +26,41 @@ namespace HomeIO.Controllers
 
         public ActionResult List()
         {
-            var list = TariffViewRepo.GetAll();
+            var list = TariffRepo.GetAll();
             return View(list);
         }
 
         public ActionResult ListById(int id)
         {
-            var list = TariffViewRepo.GetById(id);
+            var list = TariffViewRepo.GetByTypeId(id);
             return View("List", list);
         }
 
-        public ActionResult New()
+		[Authorize]
+		public ActionResult New()
         {
             return View(new FormTariffViewModel());
         }
 
         [HttpPost]
-        public ActionResult New(Tariff tariff)
+		[Authorize]
+		public ActionResult New(Tariff tariff)
         {
             TariffRepo.Create(tariff);
-            return View();
+            return View(new FormTariffViewModel());
         }
-    }
+
+		[Authorize]
+		public ActionResult Edit(int id)
+		{
+			return View(new FormTariffViewModel(id));
+		}
+
+		[Authorize]
+		public ActionResult Delete(int id)
+		{
+			TariffRepo.Delete(id);
+			return Redirect(Request.UrlReferrer.ToString());
+		}
+	}
 }

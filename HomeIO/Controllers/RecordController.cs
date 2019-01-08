@@ -1,6 +1,7 @@
 ﻿using HomeIO.Models.Entities;
 using HomeIO.Models.Repositories;
 using HomeIO.Models.ViewModels;
+using HomeIO.Models.Views;
 using System.Web.Mvc;
 
 namespace HomeIO.Controllers
@@ -29,37 +30,43 @@ namespace HomeIO.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(Record record)
+		[Authorize]
+		public ActionResult New(Record record)
         {
             RecordRepo.Create(record);
             return View("Thanks", record);
         }
 
-        public ActionResult List()
+		[Authorize]
+		public ActionResult List()
         {
             var list = RecordsRepo.GetAll();
             return View(list);
         }
 
-        public ActionResult ListById(int id)
+		[Authorize]
+		public ActionResult ListById(int id)
         {
-            var list = RecordsRepo.GetById(id);
+            var list = RecordsRepo.GetByTypeId(id);
             return View("List", list);
         }
 
-        public ActionResult Edit(int id)
+		[Authorize]
+		public ActionResult Edit(int id)
         {
             return View(new FormRecordViewModel(id));
         }
 
         [HttpPost]
-        public ActionResult Edit(Record record)
+		[Authorize]
+		public ActionResult Edit(Record record)
         {
             RecordRepo.Update(record);
-            return View("Thanks", record);
+            return View("Thanks", new EditPageViewModel(record.Id));
         }
 
-        public ActionResult Delete(int id)
+		[Authorize]
+		public ActionResult Delete(int id)
         {
             RecordRepo.Delete(id);
             return Redirect(Request.UrlReferrer.ToString());

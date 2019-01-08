@@ -25,7 +25,7 @@ namespace HomeIO.Controllers
 			IList<RType> types = TypeRepo.GetAll();
 			foreach (var type in types)
 			{
-				var typeList = RecordViewRepo.GetTopTwoById(type.Id);
+				var typeList = RecordViewRepo.GetTopTwoByTypeId(type.Id);
 				list.Add(typeList);
 			}
 			{

@@ -7,9 +7,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     @Styles.Render("~/Content/dest/css/main.css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131416365-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131416365-1');
+    </script>
+
 </head>
 <body>
-    
+
     <div class="container body-content">
         <div class="navbar">
             <div class="navbar__container">
@@ -17,14 +28,10 @@
                     @Html.ActionLink("Home IO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar__list-wrapper">
-                    <div class="navbar__list">
-                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar__list-item button" })
-                        @Html.ActionLink("Types", "List", "Type", null, new { @class = "navbar__list-item button" })
-                        @Html.ActionLink("Records", "List", "Record", null, new { @class = "navbar__list-item button" })
-                        @Html.ActionLink("Add record", "New", "Record", null, new { @class = "navbar__list-item button" })
-                    </div>
+                    @Html.Partial("_Menu")
+                    @Html.Partial("_LoginPartial")
                 </div>
-                @Html.Partial("_LoginPartial")
+
             </div>
         </div>
 

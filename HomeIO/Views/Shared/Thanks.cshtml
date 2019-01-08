@@ -1,4 +1,4 @@
-﻿@model Record
+﻿@model EditPageViewModel
 
 <section class="thanks-page">
     <div class="thanks-page__container">
@@ -8,14 +8,14 @@
         <div class="list__card">
             <i class="list__card-circle far fa-circle"></i>
             <div class="list__current">
-                <div class="list__value">@Model.CurrentValue</div>
-                <div class="list__unit">Model.Unit</div>
+                <div class="list__value">@Model.Record.CurrentValue</div>
+                <div class="list__unit">@Model.Record.Unit</div>
             </div>
             <div class="list__type-wrapper">
-                @Html.ActionLink("row.TypeName", "ListById", "Record", new { @id = Model.TypeId }, new { @class = "list__type" })
+                @Html.ActionLink(Model.Record.TypeName, "ListById", "Record", new { @id = Model.Record.TypeId }, new { @class = "list__type" })
             </div>
 
-            <div class="list__date"><i class="list__date-icon far fa-calendar-alt"></i>@Convert.ToDateTime(Model.Date).ToString("MM/dd/yyyy")</div>
+            <div class="list__date"><i class="list__date-icon far fa-calendar-alt"></i>@Convert.ToDateTime(Model.Record.Date).ToString("MM/dd/yyyy")</div>
 
 
         </div>

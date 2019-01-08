@@ -24,7 +24,7 @@
                         @Html.ActionLink(@record.TypeName, "ListById", "Record", new { @id = record.TypeId }, new { @class = "summary-grid__title-link" })
                     </h3>
                     <div class="summary-grid__quater summary-grid__quater--current">
-                        <span class="summary-grid__value">@record.Amount</span>
+                        <span class="summary-grid__value" title="@record.Period period">@record.Amount</span>
                         <span class="summary-grid__unit">@record.Unit</span>
                     </div>
                     <div class="summary-grid__quater summary-grid__quater--cost" title="@record.Tariff[0] uah/@record.Unit">
@@ -33,13 +33,13 @@
                     </div>
 
                     <div class="summary-grid__quater summary-grid__quater--period">
-                        <span class="summary-grid__value">@record.Period</span>
-                        <span class="summary-grid__unit">days period</span>
+                        <span class="summary-grid__value">@record.Record.CurrentValue</span>
+                        <span class="summary-grid__unit">@record.Unit last</span>
                     </div>
 
                     <div class="summary-grid__quater summary-grid__quater--since">
                         <span class="summary-grid__value">@record.Days</span>
-                        <span class="summary-grid__unit">since last</span>
+                        <span class="summary-grid__unit">days since</span>
                     </div>
                 </div>
             }

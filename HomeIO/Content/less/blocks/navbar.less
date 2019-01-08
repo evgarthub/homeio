@@ -1,38 +1,42 @@
 ﻿///<reference path="../main.less" />
 
 .navbar {
-    .floating;
-    z-index: 10;
-    position: relative;
+	.floating;
+	z-index: 10;
+	position: relative;
 
-    &__container {
-        .base-container();
-        padding: @pad-small;
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-    }
+	&__container {
+		.base-container();
+		padding: @pad-small;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
 
-    &__list {
-        &-wrapper {
-            flex: 1 1 0;
-            display: flex;
-            justify-content: flex-end;
-        }
+	&__list {
+		&-wrapper {
+			flex: 1 1 0;
+			display: flex;
+			justify-content: flex-end;
+		}
 
-        &-item {
-            padding: .5em;
-        }
-    }
+		&-item {
+			padding: .5em;
+		}
 
-    &__logo {
-        &-wrapper {
-            color: @color-dark-grey;
-            .typo-header-medium;
+		&--login {
+			padding-left: .5em;
+		}
+	}
 
-            * {
-                color: @color-dark-grey;
-            }
-        }
-    }
+	&__logo {
+		&-wrapper {
+			color: @color-dark-grey;
+			.typo-header-medium;
+
+			* {
+				color: @color-dark-grey;
+			}
+		}
+	}
 }

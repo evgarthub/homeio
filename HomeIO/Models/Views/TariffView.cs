@@ -12,5 +12,6 @@ namespace HomeIO.Models.Entities
         public DateTime Date { get; set; }
         public string Source { get; set; }
         public string TypeName { get; set; }
-    }
+		public string TypeFormula { get; set; }
+	}
 }

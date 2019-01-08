@@ -56,7 +56,7 @@ namespace HomeIO.Models.Repositories
             SqlCommand command = new SqlCommand();
 
             command.Connection = DBInstance;
-            command.CommandText = "SELECT [TypeId],[Unit],[Cost],[StartDate],[Source] FROM [Tariffs]";
+            command.CommandText = "SELECT [Id], [TypeId],[Unit],[Cost],[StartDate],[Source] FROM [Tariffs]";
             SqlDataReader reader = command.ExecuteReader();
 
             IList<Tariff> rows = new List<Tariff>();
@@ -65,8 +65,8 @@ namespace HomeIO.Models.Repositories
             {
                 rows.Add(new Tariff
                 {
-                    Id = reader.GetInt16(0),
-                    TypeId = reader.GetInt16(1),
+                    Id = reader.GetInt32(0),
+                    TypeId = reader.GetInt32(1),
                     Unit = reader.GetString(2),
                     Cost = reader.GetString(3),
                     Date = reader.GetDateTime(4),
@@ -85,25 +85,31 @@ namespace HomeIO.Models.Repositories
             SqlCommand command = new SqlCommand();
 
             command.Connection = DBInstance;
-            command.CommandText = "SELECT [TypeId],[Unit],[Cost],[StartDate],[Source] FROM [Tariffs]";
-            SqlDataReader reader = command.ExecuteReader();
+            command.CommandText = "SELECT [Id],[TypeId],[Unit],[Cost],[StartDate],[Source] FROM [Tariffs] WHERE [Id] = @tariffId";
+			command.Parameters.AddWithValue("tariffId", id);
+			SqlDataReader reader = command.ExecuteReader();
 
-            Tariff row = new Tariff
-            {
-                Id = reader.GetInt16(0),
-                TypeId = reader.GetInt16(1),
-                Unit = reader.GetString(2),
-                Cost = reader.GetString(3),
-                Date = reader.GetDateTime(4),
-                Source = reader.GetString(5)
-            };
+			IList<Tariff> rows = new List<Tariff>();
 
-            Close();
+			while (reader.Read())
+			{
+				rows.Add(new Tariff
+				{
+					Id = reader.GetInt32(0),
+					TypeId = reader.GetInt32(1),
+					Unit = reader.GetString(2),
+					Cost = reader.GetString(3),
+					Date = reader.GetDateTime(4),
+					Source = reader.GetString(5)
+				});
+			}
 
-            return row;
+			Close();
+
+            return rows[0];
         }
 
-        public void Update(Tariff entity)
+		public void Update(Tariff entity)
         {
             Open();
             SqlCommand command = new SqlCommand();

@@ -12,9 +12,9 @@
 
             @foreach (var type in Model)
             {
-            <div class="list__card">
-                <div class="list__name">@type.Name</div>
-                <div class="list__formula">@type.Formula</div>
+            <div class="list__card list__card--type list__card--@type.Name.ToLower().Replace(" ", "-")">
+                <div class="list__card-name">@type.Name</div>
+                <div class="list__card-formula">@type.Formula</div>
 
                 @Html.ActionLink("Show records", "ListById", "Record", new { @id = type.Id }, new { @class = "list__button" })
                 @Html.ActionLink("Show tariffs", "ListById", "Tariff", new { @id = type.Id }, new { @class = "list__button" })
