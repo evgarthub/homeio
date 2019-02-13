@@ -9,17 +9,40 @@ namespace HomeIO.Models.Repositories
     {
         public void Create(Record entity)
         {
-            using (SqlCommand command = CreateCommand("INSERT INTO[Records]([TypeId],[CurrentValue],[Date]) VALUES(@recordTypeId, @recordCurrentValue, @recordDate)"))
+            using (SqlCommand command = CreateCommand("INSERT INTO[Records]([TypeId],[CurrentValue],[Date],[UserId]) VALUES(@recordTypeId, @recordCurrentValue, @recordDate, @userId)"))
             {             
                 command.Parameters.AddWithValue("recordTypeId", entity.TypeId);
                 command.Parameters.AddWithValue("recordCurrentValue", entity.CurrentValue);
                 command.Parameters.AddWithValue("recordDate", entity.Date);
+				command.Parameters.AddWithValue("userId", entity.UserId);
                 command.ExecuteNonQuery();
                 Close();
             }
         }
+		
+		public int Create(Record entity, string userId)
+		{
+			int id = 0;
 
-        public void Delete(Record entity)
+			using (SqlCommand command = CreateCommand("INSERT INTO[Records]([TypeId],[CurrentValue],[Date],[UserId]) VALUES(@recordTypeId, @recordCurrentValue, @recordDate, @userId); SELECT SCOPE_IDENTITY();"))
+			{
+				command.Parameters.AddWithValue("recordTypeId", entity.TypeId);
+				command.Parameters.AddWithValue("recordCurrentValue", entity.CurrentValue);
+				command.Parameters.AddWithValue("recordDate", entity.Date);
+				command.Parameters.AddWithValue("userId", userId);
+				SqlDataReader reader = command.ExecuteReader();
+
+				while (reader.Read()) {
+					id = (int)reader.GetDecimal(0);
+				}
+
+				Close();
+			}
+
+			return id;
+		}
+
+		public void Delete(Record entity)
         {
             using (SqlCommand command = CreateCommand("DELETE FROM [Records] WHERE Id = @recordId")) {
                 command.Parameters.AddWithValue("recordId", entity.Id);

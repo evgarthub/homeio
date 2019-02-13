@@ -201,6 +201,7 @@
     <Compile Include="Models\ViewModels\FormTariffViewModel.cs" />
     <Compile Include="Models\ViewModels\ListPageViewModel.cs" />
     <Compile Include="Models\ViewModels\SummaryPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\TariffEditPage.cs" />
     <Compile Include="Models\Views\RecordView.cs" />
     <Compile Include="Models\Views\SumRecordView.cs" />
     <Compile Include="Models\Views\TariffView.cs" />

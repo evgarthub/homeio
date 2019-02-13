@@ -11,5 +11,6 @@ namespace HomeIO.Models.Views
         public string TypeName { get; set; }
         public string Tariff { get; set; }
         public string Unit { get; set; }
-    }
+		public string UserId { get; set; }
+	}
 }

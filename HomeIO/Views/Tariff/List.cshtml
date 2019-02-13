@@ -19,7 +19,9 @@
                     @Html.ActionLink(tariff.TypeName, "ListById", "Record", new { @id = tariff.TypeId }, new { @class = "list__type" })
                 </div>
                 <div class="list__control">
+
                     <a href="@tariff.Source" class="list__control-link list__control-link--source" title="Source"><i class="fas fa-external-link-square-alt"></i></a>
+
                     <a href="/tariff/edit/@tariff.Id" class="list__control-link list__control-link--edit"><i class="far fa-edit"></i></a>
                     <a href="/tariff/delete/@tariff.Id" class="list__control-link list__control-link--delete"><i class="fas fa-times"></i></a>
                 </div>

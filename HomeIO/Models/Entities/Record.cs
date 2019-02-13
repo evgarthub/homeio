@@ -9,5 +9,6 @@ namespace HomeIO.Models.Entities
         public int TypeId { get; set; }
         public double CurrentValue { get; set; }
         public DateTime Date { get; set; }
-    }
+		public string UserId { get; set; }
+	}
 }

@@ -26,7 +26,7 @@ namespace HomeIO.Controllers
 
         public ActionResult List()
         {
-            var list = TariffRepo.GetAll();
+            var list = TariffViewRepo.GetAll();
             return View(list);
         }
 
@@ -54,6 +54,14 @@ namespace HomeIO.Controllers
 		public ActionResult Edit(int id)
 		{
 			return View(new FormTariffViewModel(id));
+		}
+
+		[HttpPost]
+		[Authorize]
+		public ActionResult Edit(Tariff tariff)
+		{
+			TariffRepo.Update(tariff);
+			return RedirectToAction("List");
 		}
 
 		[Authorize]
